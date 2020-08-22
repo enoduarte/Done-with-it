@@ -6,12 +6,16 @@ import { StyleSheet, StatusBar, SafeAreaView, View } from "react-native";
 import Messages from "./app/screens/messages";
 import Account from "./app/screens/account";
 import Listings from "./app/screens/listings";
+import AppTextInput from "./app/components/appTextInput";
+import AppPicker from "./app/components/appPicker";
 
 console.log(StatusBar.currentHeight);
 
 export default function App() {
   return (
     <SafeAreaView style={styles.screen}>
+      <AppTextInput icon="email" placeholder="Email" />
+      <AppPicker icon="apps" placeholder="Email" />
       <Listings />
     </SafeAreaView>
   );
