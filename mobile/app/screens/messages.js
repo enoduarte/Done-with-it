@@ -20,7 +20,7 @@ function Messages() {
   return (
     <FlatList
       data={messages}
-      keyExtractor={(m) => m.id}
+      keyExtractor={(m) => m.id + ""}
       renderItem={({ item }) => (
         <ListItem
           title={item.title}
