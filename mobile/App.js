@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Welcome from "./app/screens/welcome";
 import ViewImage from "./app/screens/viewImage";
 import Details from "./app/screens/details";
@@ -9,13 +9,25 @@ import Listings from "./app/screens/listings";
 import AppTextInput from "./app/components/appTextInput";
 import AppPicker from "./app/components/appPicker";
 
-console.log(StatusBar.currentHeight);
+const cats = [
+  { label: "Roupa", value: 1 },
+  { label: "Moveis", value: 2 },
+  { label: "Camera", value: 3 },
+];
 
 export default function App() {
+  const [cat, setCat] = useState();
+
   return (
     <SafeAreaView style={styles.screen}>
       <AppTextInput icon="email" placeholder="Email" />
-      <AppPicker icon="apps" placeholder="Email" />
+      <AppPicker
+        selectedItem={cat}
+        onSelectItem={setCat}
+        icon="apps"
+        items={cats}
+        placeholder="Categories"
+      />
       <Listings />
     </SafeAreaView>
   );
