@@ -8,6 +8,7 @@ import Account from "./app/screens/account";
 import Listings from "./app/screens/listings";
 import AppTextInput from "./app/components/appTextInput";
 import AppPicker from "./app/components/appPicker";
+import Login from "./app/screens/login";
 
 const cats = [
   { label: "Roupa", value: 1 },
@@ -20,15 +21,7 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.screen}>
-      <AppTextInput icon="email" placeholder="Email" />
-      <AppPicker
-        selectedItem={cat}
-        onSelectItem={setCat}
-        icon="apps"
-        items={cats}
-        placeholder="Categories"
-      />
-      <Listings />
+      <Login />
     </SafeAreaView>
   );
 }

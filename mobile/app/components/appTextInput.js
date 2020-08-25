@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
   },
   icon: { marginRight: 10 },
   text: {
+    flex: 1,
     color: colors.dark,
     fontSize: 18,
     fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir",
