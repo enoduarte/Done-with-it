@@ -1,14 +1,8 @@
 import React, { useState } from "react";
-import Welcome from "./app/screens/welcome";
-import ViewImage from "./app/screens/viewImage";
-import Details from "./app/screens/details";
 import { StyleSheet, StatusBar, SafeAreaView, View } from "react-native";
-import Messages from "./app/screens/messages";
-import Account from "./app/screens/account";
-import Listings from "./app/screens/listings";
-import AppTextInput from "./app/components/appTextInput";
-import AppPicker from "./app/components/appPicker";
+
 import Login from "./app/screens/login";
+import Register from "./app/screens/register";
 
 const cats = [
   { label: "Roupa", value: 1 },
@@ -21,7 +15,9 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.screen}>
-      <Login />
+      <View style={styles.screen}>
+        <Register />
+      </View>
     </SafeAreaView>
   );
 }
@@ -31,5 +27,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: StatusBar.currentHeight,
     backgroundColor: "#f8f4f4",
+    padding: 10,
   },
+  pad: { padding: 20 },
 });
