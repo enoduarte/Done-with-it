@@ -14,13 +14,17 @@ const AppTextInput = ({ icon, ...others }) => (
         style={styles.icon}
       />
     )}
-    <TextInput style={styles.text} {...others} />
+    <TextInput
+      placeholderTextColor={colors.medium}
+      style={styles.text}
+      {...others}
+    />
   </View>
 );
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#ddd",
+    backgroundColor: colors.light,
     borderRadius: 25,
     flexDirection: "row",
     width: "100%",

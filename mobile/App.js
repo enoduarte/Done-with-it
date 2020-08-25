@@ -3,6 +3,7 @@ import { StyleSheet, StatusBar, SafeAreaView, View } from "react-native";
 
 import Login from "./app/screens/login";
 import Register from "./app/screens/register";
+import ListingEdit from "./app/screens/listingEdit";
 
 const cats = [
   { label: "Roupa", value: 1 },
@@ -16,7 +17,7 @@ export default function App() {
   return (
     <SafeAreaView style={styles.screen}>
       <View style={styles.screen}>
-        <Register />
+        <ListingEdit />
       </View>
     </SafeAreaView>
   );
@@ -26,8 +27,7 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     paddingTop: StatusBar.currentHeight,
-    backgroundColor: "#f8f4f4",
-    padding: 10,
+    backgroundColor: "#fff",
+    padding: 5,
   },
-  pad: { padding: 20 },
 });

@@ -35,7 +35,12 @@ const AppPicker = ({
               style={styles.icon}
             />
           )}
-          <AppText style={styles.text}>
+          <AppText
+            style={[
+              styles.text,
+              { color: selectedItem ? null : colors.medium },
+            ]}
+          >
             {selectedItem?.label || placeholder}
           </AppText>
           <MaterialCommunityIcons
@@ -67,7 +72,7 @@ const AppPicker = ({
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#ddd",
+    backgroundColor: colors.light,
     borderRadius: 25,
     flexDirection: "row",
     width: "100%",
@@ -77,7 +82,6 @@ const styles = StyleSheet.create({
   icon: { marginRight: 10 },
   text: {
     flex: 1,
-    color: colors.dark,
     fontSize: 18,
     fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir",
   },
