@@ -12,7 +12,7 @@ const listings = [
   },
   {
     id: 2,
-    title: "Couch in good codition",
+    title: "Couch in good codition, very good couch for your family",
     price: 815,
     image: require("../assets/couch.jpg"),
   },

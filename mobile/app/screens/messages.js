@@ -5,7 +5,7 @@ import ListItemSeparator from "../components/listItemSeparator";
 import ListItemDeleteAction from "../components/listItemDeleteAction";
 
 const initMessage = [
-  { id: 1, title: "T1", desc: "D1", image: require("../assets/mosh.jpg") },
+  { id: 1, title: "T1 ", desc: "D1", image: require("../assets/mosh.jpg") },
   { id: 2, title: "T2", desc: "D2", image: require("../assets/mosh.jpg") },
 ];
 
