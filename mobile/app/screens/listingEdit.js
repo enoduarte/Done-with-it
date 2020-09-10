@@ -34,8 +34,14 @@ function ListingEdit() {
         keyboardType="numeric"
         placeholder="Price"
         name="price"
+        width={150}
       />
-      <AppFormPicker placeholder="Category" name="cat" items={cats} />
+      <AppFormPicker
+        placeholder="Category"
+        name="cat"
+        items={cats}
+        width={200}
+      />
       <AppFormField
         maxLength={255}
         multiline
