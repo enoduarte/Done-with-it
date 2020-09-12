@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { StyleSheet, StatusBar, SafeAreaView, View } from "react-native";
+import React, { useState, useEffect } from "react";
+import { StyleSheet, StatusBar, SafeAreaView, View, Alert } from "react-native";
+import * as ImagePicker from "expo-image-picker";
 
 import Login from "./app/screens/login";
 import Register from "./app/screens/register";
@@ -14,7 +15,14 @@ const cats = [
 ];
 
 export default function App() {
-  const [cat, setCat] = useState();
+  async function reqPermission() {
+    const { granted } = await ImagePicker.requestCameraRollPermissionsAsync();
+    if (!granted) Alert("You need to enable permission to access the library");
+  }
+
+  useEffect(() => {
+    reqPermission();
+  }, []);
 
   return (
     <SafeAreaView style={styles.screen}>
