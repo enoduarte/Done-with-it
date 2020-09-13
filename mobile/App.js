@@ -1,33 +1,26 @@
-import React, { useState, useEffect } from "react";
-import { StyleSheet, StatusBar, SafeAreaView, View, Alert } from "react-native";
-import * as ImagePicker from "expo-image-picker";
+import React, { useState } from "react";
+import { StyleSheet, StatusBar, SafeAreaView, View } from "react-native";
 
-import Login from "./app/screens/login";
-import Register from "./app/screens/register";
-import ListingEdit from "./app/screens/listingEdit";
-import Messages from "./app/screens/messages";
-import Listings from "./app/screens/listings";
-
-const cats = [
-  { label: "Roupa", value: 1 },
-  { label: "Moveis", value: 2 },
-  { label: "Camera", value: 3 },
-];
+import ImageInputList from "./app/components/imageInputList";
 
 export default function App() {
-  async function reqPermission() {
-    const { granted } = await ImagePicker.requestCameraRollPermissionsAsync();
-    if (!granted) Alert("You need to enable permission to access the library");
-  }
+  const [imageUris, setImageUris] = useState([]);
 
-  useEffect(() => {
-    reqPermission();
-  }, []);
+  const handleAdd = (uri) => {
+    setImageUris([...imageUris, uri]);
+  };
+
+  const handleRemove = (uri) =>
+    setImageUris(imageUris.filter((img) => img !== uri));
 
   return (
     <SafeAreaView style={styles.screen}>
       <View style={styles.view}>
-        <Listings />
+        <ImageInputList
+          uris={imageUris}
+          onAddImg={handleAdd}
+          onRemoveImg={handleRemove}
+        />
       </View>
     </SafeAreaView>
   );
@@ -41,4 +34,5 @@ const styles = StyleSheet.create({
   view: {
     flex: 1,
   },
+  img: { width: 200, height: 200, backgroundColor: "#999" },
 });

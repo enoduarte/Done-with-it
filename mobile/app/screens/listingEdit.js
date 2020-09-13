@@ -14,6 +14,7 @@ const validationSchema = Yup.object().shape({
   price: Yup.number().required().min(1).max(9999).label("Price"),
   description: Yup.string().label("Description"),
   cat: Yup.object().required().nullable().label("Category"),
+  images: Yup.array().required().label("Images"),
 });
 
 const cats = [
@@ -31,7 +32,13 @@ const cats = [
 function ListingEdit() {
   return (
     <AppForm
-      initialValues={{ title: "", price: "", cat: null, description: "" }}
+      initialValues={{
+        title: "",
+        price: "",
+        cat: null,
+        description: "",
+        images: [],
+      }}
       onSubmit={(values) => console.log(values)}
       validationSchema={validationSchema}
     >
