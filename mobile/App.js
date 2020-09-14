@@ -1,26 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { StyleSheet, StatusBar, SafeAreaView, View } from "react-native";
 
-import ImageInputList from "./app/components/imageInputList";
+import ListingEdit from "./app/screens/listingEdit";
 
 export default function App() {
-  const [imageUris, setImageUris] = useState([]);
-
-  const handleAdd = (uri) => {
-    setImageUris([...imageUris, uri]);
-  };
-
-  const handleRemove = (uri) =>
-    setImageUris(imageUris.filter((img) => img !== uri));
-
   return (
     <SafeAreaView style={styles.screen}>
       <View style={styles.view}>
-        <ImageInputList
-          uris={imageUris}
-          onAddImg={handleAdd}
-          onRemoveImg={handleRemove}
-        />
+        <ListingEdit />
       </View>
     </SafeAreaView>
   );

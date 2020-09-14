@@ -7,14 +7,17 @@ import {
   SubmitButton,
   AppFormPicker,
 } from "../components/forms";
+
 import CatPickerItem from "../components/catPickerItem";
+import FormImagePicker from "../components/forms/formImagePicker";
+import useLocation from "../hooks/useLocation";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
   price: Yup.number().required().min(1).max(9999).label("Price"),
   description: Yup.string().label("Description"),
   cat: Yup.object().required().nullable().label("Category"),
-  images: Yup.array().required().label("Images"),
+  images: Yup.array().min(1, "Please select at least one image"),
 });
 
 const cats = [
@@ -30,6 +33,8 @@ const cats = [
 ];
 
 function ListingEdit() {
+  const location = useLocation();
+
   return (
     <AppForm
       initialValues={{
@@ -42,6 +47,7 @@ function ListingEdit() {
       onSubmit={(values) => console.log(values)}
       validationSchema={validationSchema}
     >
+      <FormImagePicker name="images" />
       <AppFormField maxLength={100} placeholder="Title" name="title" />
       <AppFormField
         maxLength={8}

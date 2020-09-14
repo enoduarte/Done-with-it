@@ -1,11 +1,13 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, TouchableOpacity } from "react-native";
 import AppText from "./appText";
 import Icon from "./icon";
 
 const CatPickerItem = ({ item, onPress }) => (
   <View style={styles.container}>
-    <Icon name={item.icon} bgColor={item.bg} size={80} />
+    <TouchableOpacity onPress={onPress}>
+      <Icon name={item.icon} bgColor={item.bg} size={80} />
+    </TouchableOpacity>
     <AppText style={styles.label}>{item.label}</AppText>
   </View>
 );
