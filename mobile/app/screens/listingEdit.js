@@ -44,7 +44,7 @@ function ListingEdit() {
         description: "",
         images: [],
       }}
-      onSubmit={(values) => console.log(values)}
+      onSubmit={(values) => console.log(location)}
       validationSchema={validationSchema}
     >
       <FormImagePicker name="images" />
