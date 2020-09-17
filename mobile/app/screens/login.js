@@ -9,13 +9,13 @@ const validationSchema = Yup.object().shape({
   password: Yup.string().required().min(4).max(10).label("Password"),
 });
 
-function Login() {
+function Login({ navigation }) {
   return (
     <>
       <Image source={require("../assets/logo-red.png")} style={styles.logo} />
       <AppForm
         initialValues={{ email: "", password: "" }}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={() => navigation.navigate("Feed")}
         validationSchema={validationSchema}
       >
         <AppFormField
@@ -50,7 +50,6 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     marginTop: 50,
   },
-  error: { color: "#F00" },
 });
 
 export default Login;

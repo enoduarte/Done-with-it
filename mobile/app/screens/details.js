@@ -6,13 +6,13 @@ import AppText from "../components/appText";
 import colors from "../config/colors";
 import ListItem from "../components/listItem";
 
-function Details() {
+function Details({ route }) {
   return (
     <View>
-      <Image source={require("../assets/jacket.jpg")} style={styles.image} />
+      <Image source={route.params.image} style={styles.image} />
       <View style={styles.cardDetails}>
-        <AppText style={styles.title}>Red jacket for sale</AppText>
-        <AppText style={styles.price}>$105</AppText>
+        <AppText style={styles.title}>{route.params.title}</AppText>
+        <AppText style={styles.price}>${route.params.price}</AppText>
       </View>
       <View style={styles.userContainer}>
         <ListItem

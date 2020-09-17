@@ -11,10 +11,14 @@ const menuItems = [
     title: "My Listings",
     icon: { name: "format-list-bulleted", bg: colors.primary },
   },
-  { title: "My Messages", icon: { name: "email", bg: colors.secondary } },
+  {
+    title: "My Messages",
+    icon: { name: "email", bg: colors.secondary },
+    targetScreen: "Messages",
+  },
 ];
 
-function Account() {
+function Account({ navigation }) {
   return (
     <View>
       <View style={styles.container}>
@@ -34,6 +38,7 @@ function Account() {
             <ListItem
               title={i.title}
               IconComponent={<Icon name={i.icon.name} bgColor={i.icon.bg} />}
+              onPress={() => navigation.navigate(i.targetScreen)}
             />
           )}
         />

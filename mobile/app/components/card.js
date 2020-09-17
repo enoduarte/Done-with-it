@@ -6,11 +6,9 @@ import AppText from "./appText";
 import colors from "../config/colors";
 import { useNavigation } from "@react-navigation/native";
 
-const Card = ({ title, subTitle, image }) => {
-  const navigation = useNavigation();
-
+const Card = ({ title, subTitle, image, onPress }) => {
   return (
-    <TouchableOpacity onPress={() => navigation.navigate("Details")}>
+    <TouchableOpacity onPress={onPress}>
       <View style={styles.card}>
         <Image source={image} style={styles.image} />
         <View style={styles.cardDetails}>

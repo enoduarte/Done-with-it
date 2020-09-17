@@ -18,7 +18,7 @@ const listings = [
   },
 ];
 
-function Listings() {
+function Listings({ navigation }) {
   return (
     <View style={{ padding: 20 }}>
       <FlatList
@@ -29,6 +29,7 @@ function Listings() {
             title={item.title}
             subTitle={"$ " + item.price}
             image={item.image}
+            onPress={() => navigation.navigate("Details", item)}
           />
         )}
       />
